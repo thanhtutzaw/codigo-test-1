@@ -95,21 +95,18 @@
       height: 100dvh;
       > img {
         will-change: transform;
-        transform: translate(100px, 0px);
-        animation: floating 2s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
+        transform: translate(0, 20vh);
+        animation: floating 3s infinite cubic-bezier(0.39, 0.575, 0.565, 1);
       }
       @keyframes floating {
         0% {
-          transform: translate(0px, 0px);
+          transform: translate(0, 20vh);
         }
         50% {
-          transform: translate(0px, 50px);
-        }
-        50% {
-          transform: translate(0px, -50px);
+          transform: translate(0, 30vh);
         }
         100% {
-          transform: translate(0px, 0px);
+          transform: translate(0, 20vh);
         }
       }
       .viewMore_container {
@@ -172,7 +169,6 @@
           }
           width: 10vw;
           max-width: 40px;
-          
         }
       }
       @media only screen and (max-width: 950px) {
