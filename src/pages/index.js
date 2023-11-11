@@ -1,5 +1,6 @@
 // import LogoSvg from '@/Components/LogoSvg'
 import { Logo } from "@/Components/Logo.jsx";
+import PageLoader from "@/Components/PageLoader";
 import ViewMoreBtn from "@/Components/ViewMoreBtn";
 import s from '@/styles/Home.module.scss'
 import { Inter } from 'next/font/google'
@@ -19,7 +20,7 @@ export default function Home() {
       console.log('page loaded');
       setTimeout(() => {
         setPageLoading(false)
-      }, 1000);
+      }, 2000);
     };
 
     if (document.readyState === 'complete') {
@@ -41,9 +42,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${s.main} ${inter.className}`}>
-        <div className={s.loading} data-loaded={!pageLoading}>
-          <Image width={200} height={200} alt="loading" src={'https://nft.fluffyhugs.io/loading/loading.webp'} />
-        </div>
+        <PageLoader pageLoading={pageLoading} />
         <header data-hide="true">
           {/* <div className="header_header_gradation__rZ2Nw">
 
@@ -53,13 +52,46 @@ export default function Home() {
               <Logo />
             </Link>
           </div>
-          <div className="header_right__7cvlD">
-            <Link className="header_right_top__UlXpu" href="/">TOP</Link>
+          <div className={s.right}>
+            <Link className={s.right_top} href="/">TOP</Link>
           </div>
         </header>
         <div className={s.layout_container}>
           <div className={s.glCanvas_glCanvas}>
-            <ViewMoreBtn/>
+
+            <Image
+              style={{ objectFit: 'contain' }}
+              fill
+              alt="human"
+              src="https://nft.fluffyhugs.io/scene/webp/tex/human.webp"
+            />
+            <Image
+              style={{ objectFit: 'contain', transform: 'translate(-141px, 354px)' }}
+              fill
+              alt="human"
+              src="https://nft.fluffyhugs.io/scene/webp/tex/human.webp"
+            />
+            <Image
+              style={{ objectFit: 'contain', transform: 'translate(141px,100px)' }}
+              fill
+              alt="human"
+              src="https://nft.fluffyhugs.io/scene/webp/tex/human.webp"
+            />
+            <ViewMoreBtn />
+
+            <div className={s.link}>
+              {socialLinks.map(({ src, name, url }, index) => (
+                <>
+                  <div key={index} className={s.item}>
+                    <Link href={url} target="_blank" rel="noopener noreferrer">
+
+                      <Image width={40} height={40} src={src} alt={name} />
+                    </Link>
+                  </div>
+                </>
+              ))}
+            </div>
+
           </div>
         </div>
 
@@ -78,6 +110,21 @@ export default function Home() {
     </>
   )
 }
+const socialLinks = [
+  {
+    name: "discord",
+    url: 'https://discord.com/invite/PmWf27cY6p',
+    src: 'https://nft.fluffyhugs.io/logo/discord.svg'
+  },
+  {
+    name: "opensea",
+    url: 'https://opensea.io/ja/collection/fluffy-hugs89',
+    src: 'https://nft.fluffyhugs.io/logo/opensea.svg'
+  },
+  {
+    name: "twitter",
+    url: 'https://twitter.com/FluffyHUGS_prj',
+    src: 'https://nft.fluffyhugs.io/logo/twitter.svg'
+  },
+]
 
-    
-  

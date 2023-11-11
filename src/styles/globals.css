@@ -85,12 +85,18 @@ body {
   -moz-text-size-adjust   : 100%;
   text-size-adjust        : 100%;
   -webkit-font-smoothing  : antialiased;
+  color: #242424;
   /* background           : linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+
+
+
+
+    
 }
 
 a {
